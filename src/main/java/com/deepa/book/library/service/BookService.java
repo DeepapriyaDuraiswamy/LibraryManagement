@@ -19,9 +19,7 @@ public class BookService {
 	
 	public BookDto saveBook(BookDto bookDto) {
 	    BookEntity entity = convertDtoToEntity(bookDto);
-	    long threadId = Thread.currentThread().getId();
-        System.out.println("Current thread ID: " + threadId);
-        
+	     
 	    BookEntity savedEntity = bookRepository.save(entity);
 	    return convertEntityToDto(savedEntity);
 	}
