@@ -54,14 +54,6 @@ public class BookEntity {
         this.title = title;
     }
 
-    /*public CategoryEntity getCategory() {
-        return category;
-    }
-
-    public void setCategory(CategoryEntity category) {
-        this.category = category;
-    }
-*/
     public LocalDate getPublicationDate() {
         return publicationDate;
     }
