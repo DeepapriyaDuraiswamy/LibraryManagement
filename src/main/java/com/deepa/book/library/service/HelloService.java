@@ -14,8 +14,7 @@ public class HelloService {
 	
 	@Autowired 
 	public HelloRepository helloRepository;
-
-
+	
 	public List<HelloDto> getTableData() { 
 		
 		List<HelloDto> res = new ArrayList<HelloDto>();
@@ -26,12 +25,9 @@ public class HelloService {
 			dto.setName(entity.getTestColumn1());
 			//dto.setUid(entity.getId());
 			res.add(dto);
-		}
+		});
 		
-				
-				);
-		
-	return res;
+		return res;
                 
 	  }
 	 
@@ -45,5 +41,7 @@ public class HelloService {
 	public List<String> getTableDataWithQuery() {
 		return helloRepository.getTableDataWithQuery();
     }
+	
+	
 
 }
