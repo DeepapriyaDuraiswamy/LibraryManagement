@@ -19,30 +19,32 @@ public class BookEntity {
     private CategoryEntity category;*/
     
     @Column(name = "category_id")
-    private Long categoryId;
+    private int categoryId;
     
     
 	@Column(name = "publication_date")
     private LocalDate publicationDate;
 
-    @Column(name = "copies_owned", nullable = false)
-    private Integer copiesOwned;
-
+	@Column(name = "copies_owned")
+    private Long copiesOwned;
+	
     // Getters and Setters
 
-	public Long getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(Long categoryId) {
-		this.categoryId = categoryId;
-	}
+	
 
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-	    public Long getId() {
+	    public int getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
+
+		public Long getId() {
 		return id;
 	}
 
@@ -62,12 +64,14 @@ public class BookEntity {
         this.publicationDate = publicationDate;
     }
 
-    public Integer getCopiesOwned() {
-        return copiesOwned;
-    }
+	public Long getCopiesOwned() {
+		return copiesOwned;
+	}
 
-    public void setCopiesOwned(Integer copiesOwned) {
-        this.copiesOwned = copiesOwned;
-    }
+	public void setCopiesOwned(Long copiesOwned) {
+		this.copiesOwned = copiesOwned;
+	}
+
+   
 
 }

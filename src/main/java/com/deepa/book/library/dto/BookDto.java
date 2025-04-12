@@ -5,9 +5,9 @@ import java.util.Date;
 public class BookDto {
 	
 	private String title;
-	private long categoryId;
+	private int categoryId;
 	private Date publicationDate;
-	private Integer copiesOwned;
+	private long copiesOwned;
 
 	public String getTitle() {
 		return title;
@@ -17,11 +17,11 @@ public class BookDto {
 		this.title = title;
 	}
 
-	public long getCategoryId() {
+	public int getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(long categoryId) {
+	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
 
@@ -33,16 +33,15 @@ public class BookDto {
 		this.publicationDate = publicationDate;
 	}
 
-	public Integer getCopiesOwned() {
+	public long getCopiesOwned() {
 		return copiesOwned;
 	}
 
-	public void setCopiesOwned(Integer copiesOwned) {
+	public void setCopiesOwned(long copiesOwned) {
 		this.copiesOwned = copiesOwned;
 	}
 
-	
-	
+		
 	
 
 }
