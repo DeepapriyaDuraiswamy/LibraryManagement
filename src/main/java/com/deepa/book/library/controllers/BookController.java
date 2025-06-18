@@ -1,5 +1,7 @@
 package com.deepa.book.library.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +23,15 @@ public class BookController {
 	@PostMapping("/saveBook")
 	public BookDto saveBook(@RequestBody BookDto request) {
 		System.out.println("Title" + request.getTitle());
+		System.out.println("Title2" + request.getCategoryId());
+		System.out.println("Title3" + request.getPublicationDate());
+		System.out.println("Title4" + request.getCopiesOwned());
 	    return bookService.saveBook(request);
 	}
+	
+	@PostMapping("/books")
+    public List<BookDto> getBooksByTitle(@RequestBody BookDto request) {
+        return bookService.searchBooksByTitle(request.getTitle());
+    }
 
 }

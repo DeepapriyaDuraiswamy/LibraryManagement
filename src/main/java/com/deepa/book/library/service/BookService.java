@@ -2,7 +2,9 @@ package com.deepa.book.library.service;
 
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,23 +21,30 @@ public class BookService {
 	
 	public BookDto saveBook(BookDto bookDto) {
 	    BookEntity entity = convertDtoToEntity(bookDto);
-	    long threadId = Thread.currentThread().getId();
-        System.out.println("Current thread ID: " + threadId);
-        
+	     
 	    BookEntity savedEntity = bookRepository.save(entity);
 	    return convertEntityToDto(savedEntity);
 	}
 
+	public List<BookDto> searchBooksByTitle(String title) {
+		
+       List<BookDto> res = new ArrayList<BookDto>(); 
+		bookRepository.findByTitle(title).forEach((entity) -> {
+			
+			res.add(convertEntityToDto(entity));
+		});
+		return res;
+    }
+	
 	private BookEntity convertDtoToEntity(BookDto bookDto) {
 	    BookEntity entity = new BookEntity();
 	    entity.setTitle(bookDto.getTitle());
 	    entity.setCategoryId(bookDto.getCategoryId());
-
+	    entity.setCopiesOwned(bookDto.getCopiesOwned());
 	    if (bookDto.getPublicationDate() != null) {
 	        entity.setPublicationDate(convertDateToLocalDate(bookDto.getPublicationDate()));
 	    }
-
-	    entity.setCopiesOwned(bookDto.getCopiesOwned());
+	    
 	  return entity;
 	}
 
